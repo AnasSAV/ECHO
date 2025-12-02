@@ -1,24 +1,24 @@
 <p align="center">
-  <img width="1920" height="1080" alt="LIT for Voice (1)" src="https://github.com/user-attachments/assets/353fc2ea-d292-43e2-bfcb-04572453fcf2" />
+  <img width="1920" height="1080" alt="ECHO" src="https://github.com/user-attachments/assets/9db0b7eb-a701-4f25-aa27-ec950762bd57" />
 </p>
 
-# LIT for Voice
+# ECHO - Explainable Computation for Hearing Outputs
 
 <p align="center">
-  <a href="https://github.com/AnasSAV/LIT-for-Voice">
+  <a href="https://github.com/AnasSAV/ECHO">
     <img src="https://img.shields.io/badge/version-v1.0-blue" alt="Version"/>
   </a>
-  <a href="https://github.com/AnasSAV/LIT-for-Voice/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/AnasSAV/LIT-for-Voice" alt="License"/>
+  <a href="https://github.com/AnasSAV/ECHO/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/AnasSAV/ECHO" alt="License"/>
   </a>
-  <a href="https://github.com/AnasSAV/LIT-for-Voice/stargazers">
-    <img src="https://img.shields.io/github/stars/AnasSAV/LIT-for-Voice" alt="Stars"/>
+  <a href="https://github.com/AnasSAV/ECHO/stargazers">
+    <img src="https://img.shields.io/github/stars/AnasSAV/ECHO" alt="Stars"/>
   </a>
-  <a href="https://github.com/AnasSAV/LIT-for-Voice/network/members">
-    <img src="https://img.shields.io/github/forks/AnasSAV/LIT-for-Voice" alt="Forks"/>
+  <a href="https://github.com/AnasSAV/ECHO/network/members">
+    <img src="https://img.shields.io/github/forks/AnasSAV/ECHO" alt="Forks"/>
   </a>
-  <a href="https://github.com/AnasSAV/LIT-for-Voice/issues">
-    <img src="https://img.shields.io/github/issues/AnasSAV/LIT-for-Voice" alt="Issues"/>
+  <a href="https://github.com/AnasSAV/ECHO/issues">
+    <img src="https://img.shields.io/github/issues/AnasSAV/ECHO" alt="Issues"/>
   </a>
 </p>
 
@@ -26,7 +26,7 @@
 
 Interpreting how deep learning models make decisions is crucial, especially in high-stakes applications like speech recognition, emotion detection, and speaker identification. While the Learning Interpretability Tool (LIT) enables exploration of text and tabular models, there's a lack of equivalent tools for voice-based models. Voice data poses additional challenges due to its temporal nature and multi-modal representations (e.g., waveform, spectrogram).
 
-LIT for Voice extends the interpretability paradigm to audio models, providing researchers and developers with tools to analyze and debug speech models with greater transparency. Through interactive visualizations, attention mechanisms, and perturbation analyses, you can gain deeper insights into how your audio models make decisions.
+ECHO extends the interpretability paradigm to audio models, providing researchers and developers with tools to analyze and debug speech models with greater transparency. Through interactive visualizations, attention mechanisms, and perturbation analyses, you can gain deeper insights into how your audio models make decisions.
 
 ## Features
 
@@ -64,8 +64,8 @@ LIT for Voice extends the interpretability paradigm to audio models, providing r
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/AnasSAV/LIT-for-Voice.git
-cd LIT-for-Voice
+git clone https://github.com/AnasSAV/ECHO.git
+cd ECHO
 ```
 
 ### 2. Set up the Frontend
@@ -104,10 +104,10 @@ conda init cmd.exe
 cd Backend
 
 # Create the environment with Python 3.10
-conda create -n lit-voice python=3.10 -y
+conda create -n ECHO python=3.10 -y
 
 # Activate the environment
-conda activate lit-voice
+conda activate ECHO
 
 # Install dependencies
 conda install -c pytorch -c nvidia -c conda-forge fastapi uvicorn starlette httpx python-multipart python-dotenv pydantic-settings anyio numpy pandas librosa pysoundfile transformers pytorch torchvision torchaudio pytorch-cuda=12.1 redis-py pytest pytest-asyncio requests -y
@@ -123,7 +123,7 @@ Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
 ## Project Structure
 
 ```
-LIT-for-Voice/
+ECHO/
 ├── Frontend/                # React frontend application
 │   ├── components/          # React components
 │   │   ├── analysis/        # Analysis and perturbation tools
