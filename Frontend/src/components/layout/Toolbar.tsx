@@ -121,33 +121,33 @@ const onModelChange = (value: string) => {
 
   return (
     <TooltipProvider>
-      <div className="h-14 bg-white border-b border-border shadow-aws-sm px-6 flex items-center justify-between">
+      <div className="h-12 bg-white border-b border-border shadow-aws-sm px-5 flex items-center justify-between">
         {/* Left side: Model and Dataset selectors */}
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-3">
-            <span className="text-lg font-bold text-foreground">LIT for Voice</span>
-            <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
+        <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2.5">
+            <span className="text-base font-bold text-foreground">LIT for Voice</span>
+            <Badge variant="outline" className="text-[10px] bg-primary/10 text-primary border-primary/20">
               v1.0
             </Badge>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
               <div className="flex items-center gap-1">
-                <span className="text-sm font-medium text-foreground">Model:</span>
+                <span className="text-xs font-medium text-foreground">Model:</span>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
                     <TooltipContent className="space-y-1">
-                    <p className="text-sm">Choose the AI model for audio analysis:</p>
-                    <p className="text-sm">• Whisper: Speech-to-text transcription</p>
-                    <p className="text-sm">• Wav2Vec2: Emotion recognition</p>
+                    <p className="text-xs">Choose the AI model for audio analysis:</p>
+                    <p className="text-xs">• Whisper: Speech-to-text transcription</p>
+                    <p className="text-xs">• Wav2Vec2: Emotion recognition</p>
                     </TooltipContent>
                 </Tooltip>
               </div>
               <Select value={model} onValueChange={onModelChange}>
-                <SelectTrigger className="w-36 h-9 border-border">
+                <SelectTrigger className="w-32 h-8 border-border text-xs">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -157,23 +157,23 @@ const onModelChange = (value: string) => {
               </Select>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               <div className="flex items-center gap-1">
-                <span className="text-sm font-medium text-foreground">Dataset:</span>
+                <span className="text-xs font-medium text-foreground">Dataset:</span>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
                   <TooltipContent className="space-y-1">
-                    <p className="text-sm">Select the audio dataset to analyze:</p>
-                    <p className="text-sm">• Common Voice: Speech recognition dataset</p>
-                    <p className="text-sm">• RAVDESS: Emotion recognition dataset</p>
-                    <p className="text-sm">• Custom: Your uploaded datasets</p>
+                    <p className="text-xs">Select the audio dataset to analyze:</p>
+                    <p className="text-xs">• Common Voice: Speech recognition dataset</p>
+                    <p className="text-xs">• RAVDESS: Emotion recognition dataset</p>
+                    <p className="text-xs">• Custom: Your uploaded datasets</p>
                   </TooltipContent>
                 </Tooltip>
               </div>
               <Select value={dataset} onValueChange={onDatasetChange}>
-              <SelectTrigger className="w-44 h-9 border-border">
+              <SelectTrigger className="w-40 h-8 border-border text-xs">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -207,8 +207,8 @@ const onModelChange = (value: string) => {
           </div>
 
           {uploadedFiles && uploadedFiles.length > 0 && (
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-foreground">File:</span>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs font-medium text-foreground">File:</span>
               <Select
                 value={selectedFile?.file_id || ""}
                 onValueChange={(fileId) => {
@@ -218,7 +218,7 @@ const onModelChange = (value: string) => {
                   }
                 }}
               >
-                <SelectTrigger className="w-52 h-9 border-border">
+                <SelectTrigger className="w-48 h-8 border-border text-xs">
                   <SelectValue placeholder="Select uploaded file" />
                 </SelectTrigger>
                 <SelectContent>
@@ -235,7 +235,7 @@ const onModelChange = (value: string) => {
       </div>
 
       {/* Right side: Action buttons */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2.5">
         <CustomDatasetManager
           onDatasetCreated={handleDatasetCreated}
           onDatasetSelected={handleDatasetSelected}
@@ -243,8 +243,8 @@ const onModelChange = (value: string) => {
 
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button variant="default" size="sm" className="h-9 shadow-aws-sm">
-              <Upload className="h-4 w-4 mr-2" />
+            <Button variant="default" size="sm" className="h-8 text-xs shadow-aws-sm">
+              <Upload className="h-3.5 w-3.5 mr-1.5" />
               Upload
             </Button>
           </TooltipTrigger>

@@ -411,18 +411,18 @@ export const PredictionPanel = ({ selectedFile, selectedEmbeddingFile, model, da
   return (
     <div className="h-full bg-panel-background border-t border-border">
       <Tabs defaultValue="scalers" className="h-full">
-        <div className="bg-panel-header border-b border-border px-4 py-2.5">
-          <TabsList className={`h-8 grid w-full ${hasAttention ? 'grid-cols-4' : 'grid-cols-3'} bg-muted`}>
-            <TabsTrigger value="scalers" className="text-sm">Scalers</TabsTrigger>
-            <TabsTrigger value="saliency" className="text-sm">Saliency</TabsTrigger>
-            {hasAttention && <TabsTrigger value="attention" className="text-sm">Attention</TabsTrigger>}
-            <TabsTrigger value="perturbation" className="text-sm">Perturbation</TabsTrigger>
+        <div className="bg-panel-header border-b border-border px-3 py-2">
+          <TabsList className={`h-7 grid w-full ${hasAttention ? 'grid-cols-4' : 'grid-cols-3'} bg-muted`}>
+            <TabsTrigger value="scalers" className="text-xs">Scalers</TabsTrigger>
+            <TabsTrigger value="saliency" className="text-xs">Saliency</TabsTrigger>
+            {hasAttention && <TabsTrigger value="attention" className="text-xs">Attention</TabsTrigger>}
+            <TabsTrigger value="perturbation" className="text-xs">Perturbation</TabsTrigger>
           </TabsList>
         </div>
 
-        <div className="h-[calc(100%-3rem)] overflow-auto bg-background">
+        <div className="h-[calc(100%-2.5rem)] overflow-auto bg-background">
           <TabsContent value="scalers" className="m-0 h-full">
-            <div className="p-4 h-full">
+            <div className="p-3 h-full">
               <ScalersVisualization
                 model={model}
                 dataset={dataset}
@@ -431,7 +431,7 @@ export const PredictionPanel = ({ selectedFile, selectedEmbeddingFile, model, da
           </TabsContent>
 
           <TabsContent value="saliency" className="m-0 h-full">
-            <div className="p-4">
+            <div className="p-3">
               <SaliencyVisualization
                 selectedFile={selectedFile || selectedEmbeddingFile}
                 model={model}
@@ -442,7 +442,7 @@ export const PredictionPanel = ({ selectedFile, selectedEmbeddingFile, model, da
 
           {hasAttention && (
             <TabsContent value="attention" className="m-0 h-full">
-              <div className="p-4">
+              <div className="p-3">
                 <AttentionVisualization
                   selectedFile={selectedFile || selectedEmbeddingFile}
                   model={model}
@@ -453,7 +453,7 @@ export const PredictionPanel = ({ selectedFile, selectedEmbeddingFile, model, da
           )}
 
           <TabsContent value="perturbation" className="m-0 h-full">
-            <div className="p-4">
+            <div className="p-3">
               <PerturbationTools
                 selectedFile={selectedFile}
                 onPerturbationComplete={handlePerturbationComplete}

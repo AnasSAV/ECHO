@@ -189,12 +189,12 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
   return (
     <TooltipProvider>
       <div className="h-full bg-white border-r border-gray-200 flex flex-col">
-        <div className="panel-header p-4 border-b border-gray-200">
-          <h3 className="font-medium text-sm text-gray-800 flex items-center gap-2">
+        <div className="panel-header p-3 border-b border-gray-200">
+          <h3 className="font-medium text-xs text-gray-800 flex items-center gap-1.5">
             Audio Embeddings
             <Tooltip>
               <TooltipTrigger>
-                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
               </TooltipTrigger>
               <TooltipContent>
                 Visualize high-dimensional audio features in 2D/3D space
@@ -203,24 +203,24 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
           </h3>
         </div>
       
-      <div className="flex-1 p-4 bg-panel-background overflow-auto">
-        <div className="space-y-4">
+      <div className="flex-1 p-3 bg-panel-background overflow-auto">
+        <div className="space-y-3">
           {/* Controls Section */}
-          <div className="flex-shrink-0 space-y-3">
+          <div className="flex-shrink-0 space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 {embeddingData && (
-                  <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
+                  <Badge variant="outline" className="text-[10px] bg-primary/10 text-primary border-primary/20">
                     {embeddingData.model.toUpperCase()}
                   </Badge>
                 )}
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div>
                       <Select value={reductionMethod} onValueChange={handleReductionMethodChange}>
-                        <SelectTrigger className="w-24 h-8 text-xs">
+                        <SelectTrigger className="w-20 h-7 text-xs">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -242,9 +242,9 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
                       variant="secondary"
                       onClick={handleFetchEmbeddings}
                       disabled={isLoading || availableFiles.length === 0}
-                      className="h-8 w-8 p-0"
+                      className="h-7 w-7 p-0"
                     >
-                      <RefreshCw className={`h-3.5 w-3.5 ${isLoading ? 'animate-spin text-primary' : ''}`} />
+                      <RefreshCw className={`h-3 w-3 ${isLoading ? 'animate-spin text-primary' : ''}`} />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -255,16 +255,16 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
             </div>
             
             {/* 3D Toggle */}
-            <div className="flex items-center justify-between p-3 bg-muted rounded-sm border border-border">
-              <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-between p-2.5 bg-muted rounded-sm border border-border">
+              <div className="flex items-center space-x-1.5">
                 <Switch
                   id="3d-mode"
                   checked={is3D}
                   onCheckedChange={handle3DToggle}
                   disabled={isLoading}
                 />
-                <Label htmlFor="3d-mode" className="text-xs flex items-center gap-1 font-medium">
-                  {is3D ? <Box className="h-3.5 w-3.5 text-primary" /> : <Square className="h-3.5 w-3.5 text-muted-foreground" />}
+                <Label htmlFor="3d-mode" className="text-[11px] flex items-center gap-1 font-medium">
+                  {is3D ? <Box className="h-3 w-3 text-primary" /> : <Square className="h-3 w-3 text-muted-foreground" />}
                   <span className={is3D ? "text-primary" : "text-muted-foreground"}>
                     {is3D ? '3D View' : '2D View'}
                   </span>
@@ -300,7 +300,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
           </div>
 
           {/* Embedding Plot */}
-          <div className="h-[500px] border border-border rounded-sm bg-card shadow-aws-sm p-2 overflow-hidden">
+          <div className="h-[450px] border border-border rounded-sm bg-card shadow-aws-sm p-1.5 overflow-hidden">
             <EmbeddingPlot 
               selectedMethod={reductionMethod} 
               is3D={is3D}

@@ -540,13 +540,13 @@ export const AudioDatasetPanel = ({
   return (
     <TooltipProvider>
       <div className="h-full bg-panel-background flex flex-col">
-        <div className="bg-panel-header p-4 border-b border-border">
+        <div className="bg-panel-header p-3 border-b border-border">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-foreground text-base">Audio Dataset</h3>
+            <div className="flex items-center gap-1.5">
+              <h3 className="font-semibold text-foreground text-sm">Audio Dataset</h3>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                  <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                 </TooltipTrigger>
                 <TooltipContent className="text-xs space-y-1">
                   <p>Browse and manage audio files in your selected dataset.</p>
@@ -554,24 +554,24 @@ export const AudioDatasetPanel = ({
                 </TooltipContent>
               </Tooltip>
             </div>
-            <div className="flex items-center gap-2">
-              <Badge variant="outline" className="text-xs bg-muted">
+            <div className="flex items-center gap-1.5">
+              <Badge variant="outline" className="text-[10px] bg-muted">
                 {uploadedFiles ? `${uploadedFiles.length} uploaded` : "0 files"}
               </Badge>
               {batchInferenceStatus === 'running' && batchInferenceQueue.length > 0 && (
-                <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
+                <Badge variant="outline" className="text-[10px] bg-primary/10 text-primary border-primary/20">
                   Inferencing... {currentInferenceIndex}/{batchInferenceQueue.length}
                 </Badge>
               )}
               {(batchInferenceStatus === 'done' || isInferenceComplete) && (
-                <Badge variant="outline" className="text-xs bg-primary text-primary-foreground border-primary">
+                <Badge variant="outline" className="text-[10px] bg-primary text-primary-foreground border-primary">
                   ✓ Inference Complete
                 </Badge>
               )}
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="sm" variant="secondary" className="h-8" onClick={handleUploadClick}>
-                    <Upload className="h-3.5 w-3.5 mr-1" />
+                  <Button size="sm" variant="secondary" className="h-7 text-xs" onClick={handleUploadClick}>
+                    <Upload className="h-3 w-3 mr-1" />
                     Upload
                   </Button>
                 </TooltipTrigger>
@@ -581,8 +581,8 @@ export const AudioDatasetPanel = ({
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="sm" variant="secondary" className="h-8" onClick={handleReloadDataset} title="Reload dataset">
-                    <RefreshCw className="h-3.5 w-3.5" />
+                  <Button size="sm" variant="secondary" className="h-7 w-7 p-0" onClick={handleReloadDataset} title="Reload dataset">
+                    <RefreshCw className="h-3 w-3" />
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -601,16 +601,16 @@ export const AudioDatasetPanel = ({
         </div>
         
         {/* Search bar */}
-        <div className="px-4 pt-3 pb-2">
+        <div className="px-3 pt-2.5 pb-1.5">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3 w-3 text-muted-foreground" />
             <Tooltip>
               <TooltipTrigger asChild>
                 <Input
                   placeholder="Search audio files..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 h-9 text-sm"
+                  className="pl-8 h-8 text-xs"
                 />
               </TooltipTrigger>
               <TooltipContent>
@@ -621,7 +621,7 @@ export const AudioDatasetPanel = ({
         </div>
       </div>
       
-      <div className="flex-1 overflow-hidden px-4 pb-4">
+      <div className="flex-1 overflow-hidden px-3 pb-3">
         <Card className="h-full rounded-sm shadow-aws-sm">
           <CardContent className="p-0 h-full">
             <AudioDataTable 

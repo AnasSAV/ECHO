@@ -538,7 +538,7 @@ export const MainLayout = () => {
               />
             </Panel>
 
-            <PanelResizeHandle className="w-1.5 bg-border hover:bg-primary/20 transition-colors" />
+            <PanelResizeHandle className="w-1 bg-border hover:bg-primary/20 transition-colors" />
             
             {/* Center Panel: Predictions */}
             <Panel defaultSize={50} minSize={30}>
@@ -556,7 +556,7 @@ export const MainLayout = () => {
                   />
                 </Panel>
                 
-                <PanelResizeHandle className="h-1.5 bg-border hover:bg-primary/20 transition-colors" />
+                <PanelResizeHandle className="h-1 bg-border hover:bg-primary/20 transition-colors" />
 
                 {/* Bottom Panel: Audio Dataset Table */}
                 <Panel defaultSize={30} minSize={20}>
@@ -580,7 +580,7 @@ export const MainLayout = () => {
               </PanelGroup>
             </Panel>
 
-            <PanelResizeHandle className="w-1.5 bg-border hover:bg-primary/20 transition-colors" />
+            <PanelResizeHandle className="w-1 bg-border hover:bg-primary/20 transition-colors" />
             
             {/* Right Panel: Audio Player & Label Editor */}
             <Panel defaultSize={25} minSize={20}>

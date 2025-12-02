@@ -60,8 +60,8 @@ export const PredictionDisplay = ({
   if (!selectedFile && !selectedEmbeddingFile) {
     return (
       <Card className="shadow-aws-sm">
-        <CardContent className="p-4 text-center text-muted-foreground">
-          <div className="text-sm">No file selected</div>
+        <CardContent className="p-3 text-center text-muted-foreground">
+          <div className="text-xs">No file selected</div>
         </CardContent>
       </Card>
     );
@@ -70,21 +70,21 @@ export const PredictionDisplay = ({
   return (
     <Card className="shadow-aws-sm">
       <CardHeader className="bg-panel-header">
-        <CardTitle className="text-sm">
+        <CardTitle className="text-xs">
           {model === "wav2vec2" ? "Classification Results" : model?.includes("whisper") ? "Transcription Results" : "Prediction Results"}
           {model === "wav2vec2" && (
-            <Badge variant="outline" className="ml-2 text-xs bg-primary/10 text-primary border-primary/20">
+            <Badge variant="outline" className="ml-1.5 text-[10px] bg-primary/10 text-primary border-primary/20">
               Wav2Vec2 Emotion
             </Badge>
           )}
           {model?.includes("whisper") && (
-            <Badge variant="outline" className="ml-2 text-xs bg-primary/10 text-primary border-primary/20">
+            <Badge variant="outline" className="ml-1.5 text-[10px] bg-primary/10 text-primary border-primary/20">
               {model.includes("large") ? "Whisper Large" : "Whisper Base"}
             </Badge>
           )}
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-1.5">
         {isLoading && (
           <div className="text-xs text-muted-foreground flex items-center gap-2">
             <div className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>

@@ -191,12 +191,12 @@ export const DatapointEditorPanel = ({
   return (
     <TooltipProvider>
       <div className="h-full bg-panel-background border-l border-border flex flex-col">
-        <div className="bg-panel-header p-4 border-b border-border">
-          <h3 className="font-semibold text-base text-foreground flex items-center gap-2">
+        <div className="bg-panel-header p-3 border-b border-border">
+          <h3 className="font-semibold text-sm text-foreground flex items-center gap-1.5">
             Datapoint Editor
             <Tooltip>
               <TooltipTrigger>
-                <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
               </TooltipTrigger>
               <TooltipContent>
                 Edit and analyze individual audio samples with predictions and perturbations
@@ -205,16 +205,16 @@ export const DatapointEditorPanel = ({
           </h3>
         </div>
 
-      <div className="flex-1 p-4 overflow-auto space-y-4">
+      <div className="flex-1 p-3 overflow-auto space-y-3">
         {/* Sample Info - Top */}
         <Card className="shadow-aws-sm">
           <CardHeader className="bg-panel-header">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-sm flex items-center gap-2">
+              <CardTitle className="text-xs flex items-center gap-1.5">
                 Sample Info
                 <Tooltip>
                   <TooltipTrigger>
-                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
                   <TooltipContent>
                     Detailed information about the selected audio sample
@@ -229,7 +229,7 @@ export const DatapointEditorPanel = ({
                         variant={!showPerturbed ? "default" : "ghost"}
                         size="sm"
                         onClick={() => setShowPerturbed(false)}
-                        className={`text-xs h-7 px-3 transition-all ${
+                        className={`text-[10px] h-6 px-2.5 transition-all ${
                           !showPerturbed
                             ? 'bg-primary hover:bg-primary-hover text-primary-foreground shadow-aws-sm'
                             : 'text-muted-foreground hover:bg-background'
@@ -248,7 +248,7 @@ export const DatapointEditorPanel = ({
                         variant={showPerturbed ? "default" : "ghost"}
                         size="sm"
                         onClick={() => setShowPerturbed(true)}
-                        className={`text-xs h-7 px-3 transition-all ${
+                        className={`text-[10px] h-6 px-2.5 transition-all ${
                           showPerturbed
                             ? 'bg-primary hover:bg-primary-hover text-primary-foreground shadow-aws-sm'
                             : 'text-muted-foreground hover:bg-background'
@@ -265,7 +265,7 @@ export const DatapointEditorPanel = ({
               )}
             </div>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-1.5">
             <div className="text-xs-tight">
               <span className="text-gray-500">File:</span>
               <span className="ml-2 font-mono text-gray-700">{currentFileInfo?.filename || "No file selected"}</span>
@@ -341,11 +341,11 @@ export const DatapointEditorPanel = ({
         {/* Audio Player & Waveform - Bottom */}
         <Card className="shadow-aws-sm">
           <CardHeader className="bg-panel-header">
-            <CardTitle className="text-sm flex items-center gap-2">
+            <CardTitle className="text-xs flex items-center gap-1.5">
               Audio Playback
               <Tooltip>
                 <TooltipTrigger>
-                  <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
+                  <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                 </TooltipTrigger>
                 <TooltipContent>
                   Interactive audio player with waveform visualization
@@ -353,7 +353,7 @@ export const DatapointEditorPanel = ({
               </Tooltip>
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent className="space-y-2.5">
             <WaveformViewer 
               audioUrl={audioUrl}
               isPlaying={isPlaying}
