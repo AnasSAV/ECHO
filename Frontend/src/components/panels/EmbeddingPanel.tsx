@@ -749,7 +749,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
                         <div className="space-y-2">
                           <div className="text-sm-tight font-medium">Dominant Emotion</div>
                           <div className="flex items-center gap-2">
-                            <Badge variant="default" className="text-xs-tight capitalize">
+                            <Badge variant="default" className="text-xs-tight capitalize text-white font-normal">
                               {batchPrediction.summary.dominant_emotion}
                             </Badge>
                             <span className="text-xs-tight text-gray-600">

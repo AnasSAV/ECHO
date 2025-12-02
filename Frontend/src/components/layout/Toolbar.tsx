@@ -147,7 +147,7 @@ const onModelChange = (value: string) => {
                 </Tooltip>
               </div>
               <Select value={model} onValueChange={onModelChange}>
-                <SelectTrigger className="w-32 h-8 border-border text-xs">
+                <SelectTrigger className="w-32 h-7 border-border text-xs">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -173,7 +173,7 @@ const onModelChange = (value: string) => {
                 </Tooltip>
               </div>
               <Select value={dataset} onValueChange={onDatasetChange}>
-              <SelectTrigger className="w-40 h-8 border-border text-xs">
+              <SelectTrigger className="w-40 h-7 border-border text-xs">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -218,7 +218,7 @@ const onModelChange = (value: string) => {
                   }
                 }}
               >
-                <SelectTrigger className="w-48 h-8 border-border text-xs">
+                <SelectTrigger className="w-48 h-7 border-border text-xs">
                   <SelectValue placeholder="Select uploaded file" />
                 </SelectTrigger>
                 <SelectContent>
@@ -243,7 +243,7 @@ const onModelChange = (value: string) => {
 
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button variant="default" size="sm" className="h-8 text-xs shadow-aws-sm">
+            <Button variant="default" size="sm" className="h-7 text-xs shadow-aws-sm">
               <Upload className="h-3.5 w-3.5 mr-1.5" />
               Upload
             </Button>
