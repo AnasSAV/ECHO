@@ -22,6 +22,13 @@ export default {
 				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
+			boxShadow: {
+				'aws-sm': '0 1px 1px 0 rgba(0, 28, 36, 0.3), 1px 1px 1px 0 rgba(0, 28, 36, 0.15), -1px 1px 1px 0 rgba(0, 28, 36, 0.15)',
+				'aws': '0 4px 4px 0 rgba(0, 28, 36, 0.5)',
+				'aws-md': '0 4px 20px 1px rgba(0, 28, 36, 0.1), 0 1px 4px 0 rgba(0, 28, 36, 0.16)',
+				'aws-lg': '0 12px 24px 0 rgba(0, 28, 36, 0.12)',
+				'aws-xl': '0 16px 64px 0 rgba(0, 28, 36, 0.24)',
+			},
 			fontSize: {
 				'xs': ['0.75rem', { lineHeight: '1.5' }],
 				'sm': ['0.875rem', { lineHeight: '1.5' }],

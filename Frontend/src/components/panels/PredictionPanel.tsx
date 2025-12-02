@@ -409,53 +409,53 @@ export const PredictionPanel = ({ selectedFile, selectedEmbeddingFile, model, da
   const hasAttention = !!model && model.includes('whisper');
 
   return (
-    <div className="h-full panel-background border-t panel-border">
+    <div className="h-full bg-panel-background border-t border-border">
       <Tabs defaultValue="scalers" className="h-full">
-        <div className="panel-header border-b panel-border px-3 py-2">
-          <TabsList className={`h-7 grid w-full ${hasAttention ? 'grid-cols-4' : 'grid-cols-3'}`}>
-            <TabsTrigger value="scalers" className="text-xs">Scalers</TabsTrigger>
-            <TabsTrigger value="saliency" className="text-xs">Saliency</TabsTrigger>
-            {hasAttention && <TabsTrigger value="attention" className="text-xs">Attention</TabsTrigger>}
-            <TabsTrigger value="perturbation" className="text-xs">Perturbation</TabsTrigger>
+        <div className="bg-panel-header border-b border-border px-4 py-2.5">
+          <TabsList className={`h-8 grid w-full ${hasAttention ? 'grid-cols-4' : 'grid-cols-3'} bg-muted`}>
+            <TabsTrigger value="scalers" className="text-sm">Scalers</TabsTrigger>
+            <TabsTrigger value="saliency" className="text-sm">Saliency</TabsTrigger>
+            {hasAttention && <TabsTrigger value="attention" className="text-sm">Attention</TabsTrigger>}
+            <TabsTrigger value="perturbation" className="text-sm">Perturbation</TabsTrigger>
           </TabsList>
         </div>
-        
-        <div className="h-[calc(100%-2.5rem)] overflow-auto">
+
+        <div className="h-[calc(100%-3rem)] overflow-auto bg-background">
           <TabsContent value="scalers" className="m-0 h-full">
-            <div className="p-3 h-full">
-              <ScalersVisualization 
+            <div className="p-4 h-full">
+              <ScalersVisualization
                 model={model}
                 dataset={dataset}
               />
             </div>
           </TabsContent>
-          
+
           <TabsContent value="saliency" className="m-0 h-full">
-            <div className="p-3">
-              <SaliencyVisualization 
-                selectedFile={selectedFile || selectedEmbeddingFile} 
-                model={model} 
-                dataset={dataset} 
+            <div className="p-4">
+              <SaliencyVisualization
+                selectedFile={selectedFile || selectedEmbeddingFile}
+                model={model}
+                dataset={dataset}
               />
             </div>
           </TabsContent>
-          
+
           {hasAttention && (
             <TabsContent value="attention" className="m-0 h-full">
-              <div className="p-3">
-                <AttentionVisualization 
-                  selectedFile={selectedFile || selectedEmbeddingFile} 
-                  model={model} 
-                  dataset={dataset} 
+              <div className="p-4">
+                <AttentionVisualization
+                  selectedFile={selectedFile || selectedEmbeddingFile}
+                  model={model}
+                  dataset={dataset}
                 />
               </div>
             </TabsContent>
           )}
-          
+
           <TabsContent value="perturbation" className="m-0 h-full">
-            <div className="p-3">
-              <PerturbationTools 
-                selectedFile={selectedFile} 
+            <div className="p-4">
+              <PerturbationTools
+                selectedFile={selectedFile}
                 onPerturbationComplete={handlePerturbationComplete}
                 onPredictionRefresh={onPredictionRefresh}
                 model={model}

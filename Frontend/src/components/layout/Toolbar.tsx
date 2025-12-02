@@ -121,23 +121,23 @@ const onModelChange = (value: string) => {
 
   return (
     <TooltipProvider>
-      <div className="h-14 panel-header border-b panel-border px-4 flex items-center justify-between">
+      <div className="h-14 bg-white border-b border-border shadow-aws-sm px-6 flex items-center justify-between">
         {/* Left side: Model and Dataset selectors */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-bold text-foreground">LIT for Voice</span>
-            <Badge variant="outline" className="text-xs">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3">
+            <span className="text-lg font-bold text-foreground">LIT for Voice</span>
+            <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
               v1.0
             </Badge>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <span className="text-sm text-muted-foreground">Model:</span>
+                <span className="text-sm font-medium text-foreground">Model:</span>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-foreground font-small cursor-help" />
+                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
                     <TooltipContent className="space-y-1">
                     <p className="text-sm">Choose the AI model for audio analysis:</p>
@@ -147,7 +147,7 @@ const onModelChange = (value: string) => {
                 </Tooltip>
               </div>
               <Select value={model} onValueChange={onModelChange}>
-                <SelectTrigger className="w-32 h-8">
+                <SelectTrigger className="w-36 h-9 border-border">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -159,10 +159,10 @@ const onModelChange = (value: string) => {
 
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <span className="text-sm text-muted-foreground">Dataset:</span>
+                <span className="text-sm font-medium text-foreground">Dataset:</span>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-foreground cursor-help" />
+                    <HelpCircle className="h-3.5 w-3.5 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
                   <TooltipContent className="space-y-1">
                     <p className="text-sm">Select the audio dataset to analyze:</p>
@@ -173,7 +173,7 @@ const onModelChange = (value: string) => {
                 </Tooltip>
               </div>
               <Select value={dataset} onValueChange={onDatasetChange}>
-              <SelectTrigger className="w-40 h-8">
+              <SelectTrigger className="w-44 h-9 border-border">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -208,9 +208,9 @@ const onModelChange = (value: string) => {
 
           {uploadedFiles && uploadedFiles.length > 0 && (
             <div className="flex items-center gap-2">
-              <span className="text-sm text-muted-foreground">File:</span>
-              <Select 
-                value={selectedFile?.file_id || ""} 
+              <span className="text-sm font-medium text-foreground">File:</span>
+              <Select
+                value={selectedFile?.file_id || ""}
                 onValueChange={(fileId) => {
                   const file = uploadedFiles.find(f => f.file_id === fileId);
                   if (file && onFileSelect) {
@@ -218,7 +218,7 @@ const onModelChange = (value: string) => {
                   }
                 }}
               >
-                <SelectTrigger className="w-48 h-8">
+                <SelectTrigger className="w-52 h-9 border-border">
                   <SelectValue placeholder="Select uploaded file" />
                 </SelectTrigger>
                 <SelectContent>
@@ -235,15 +235,15 @@ const onModelChange = (value: string) => {
       </div>
 
       {/* Right side: Action buttons */}
-      <div className="flex items-center gap-2">
-        <CustomDatasetManager 
+      <div className="flex items-center gap-3">
+        <CustomDatasetManager
           onDatasetCreated={handleDatasetCreated}
           onDatasetSelected={handleDatasetSelected}
         />
 
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button variant="outline" size="sm" className="h-8">
+            <Button variant="default" size="sm" className="h-9 shadow-aws-sm">
               <Upload className="h-4 w-4 mr-2" />
               Upload
             </Button>

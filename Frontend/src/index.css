@@ -10,53 +10,53 @@ All colors MUST be HSL.
 
 @layer base {
 :root {
-    /* Core colors for LIT Voice interface */
-    --background: 218 24% 97%;
-    --foreground: 220 16% 12%;
+    /* AWS EC2 Console inspired colors - Blue and White theme */
+    --background: 0 0% 98%;
+    --foreground: 213 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 16% 12%;
+    --card-foreground: 213 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 16% 12%;
+    --popover-foreground: 213 15% 25%;
 
-    /* Primary: Deep blue for audio analysis */
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-    --primary-hover: 221 83% 48%;
+    /* Primary: AWS Blue */
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 40%;
 
-    /* Secondary: Cool gray for panels */
-    --secondary: 215 25% 95%;
-    --secondary-foreground: 220 16% 12%;
+    /* Secondary: Light gray for secondary actions */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 213 15% 25%;
 
-    --muted: 215 25% 95%;
-    --muted-foreground: 220 8% 46%;
+    --muted: 210 16% 96%;
+    --muted-foreground: 213 10% 50%;
 
-    /* Accent: Teal for highlights and active states */
-    --accent: 178 68% 45%;
+    /* Accent: AWS Info Blue */
+    --accent: 206 100% 50%;
     --accent-foreground: 0 0% 100%;
-    --accent-hover: 178 68% 40%;
+    --accent-hover: 206 100% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 25% 88%;
-    --input: 215 25% 88%;
-    --ring: 221 83% 53%;
+    --border: 214 15% 91%;
+    --input: 0 0% 100%;
+    --ring: 210 100% 45%;
 
     /* Audio specific colors */
-    --waveform-primary: 221 83% 53%;
-    --waveform-secondary: 178 68% 45%;
+    --waveform-primary: 210 100% 45%;
+    --waveform-secondary: 206 100% 50%;
     --saliency-high: 15 86% 58%;
     --saliency-medium: 45 93% 58%;
-    --saliency-low: 178 68% 78%;
-    
-    /* Panel backgrounds */
-    --panel-background: 0 0% 100%;
-    --panel-border: 215 25% 88%;
-    --panel-header: 215 25% 96%; /* Light gray background for panel headers */
+    --saliency-low: 206 100% 85%;
 
-    --radius: 0.5rem;
+    /* Panel backgrounds - AWS inspired */
+    --panel-background: 0 0% 100%;
+    --panel-border: 214 15% 91%;
+    --panel-header: 210 20% 98%; /* Very light blue-gray for panel headers */
+
+    --radius: 0.25rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -76,47 +76,47 @@ All colors MUST be HSL.
   }
 
 .dark {
-    --background: 220 27% 8%;
-    --foreground: 210 40% 95%;
+    --background: 213 20% 12%;
+    --foreground: 210 20% 95%;
 
-    --card: 220 27% 10%;
-    --card-foreground: 210 40% 95%;
+    --card: 213 18% 15%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 220 27% 10%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 213 18% 15%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 221 83% 58%;
-    --primary-foreground: 220 27% 8%;
-    --primary-hover: 221 83% 53%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 45%;
 
-    --secondary: 220 20% 15%;
-    --secondary-foreground: 210 40% 95%;
+    --secondary: 213 18% 20%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 213 18% 18%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 178 68% 50%;
-    --accent-foreground: 220 27% 8%;
-    --accent-hover: 178 68% 45%;
+    --accent: 206 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 206 100% 50%;
 
     --destructive: 0 75% 55%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 221 83% 58%;
+    --border: 213 18% 22%;
+    --input: 213 18% 18%;
+    --ring: 210 100% 50%;
 
     /* Audio specific colors - dark mode */
-    --waveform-primary: 221 83% 58%;
-    --waveform-secondary: 178 68% 50%;
+    --waveform-primary: 210 100% 50%;
+    --waveform-secondary: 206 100% 55%;
     --saliency-high: 15 86% 63%;
     --saliency-medium: 45 93% 63%;
-    --saliency-low: 178 68% 30%;
-    
-    /* Panel backgrounds - dark mode */
-    --panel-background: 220 27% 10%;
-    --panel-border: 220 20% 18%;
-    --panel-header: 220 20% 16%; /* Dark gray for panel headers in dark mode */
+    --saliency-low: 206 100% 30%;
+
+    /* Panel backgrounds - dark mode AWS inspired */
+    --panel-background: 213 18% 15%;
+    --panel-border: 213 18% 22%;
+    --panel-header: 213 18% 18%; /* Slightly lighter for contrast */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

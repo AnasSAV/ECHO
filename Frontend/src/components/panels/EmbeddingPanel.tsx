@@ -203,14 +203,14 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
           </h3>
         </div>
       
-      <div className="flex-1 p-4 bg-white overflow-auto">
+      <div className="flex-1 p-4 bg-panel-background overflow-auto">
         <div className="space-y-4">
           {/* Controls Section */}
           <div className="flex-shrink-0 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {embeddingData && (
-                  <Badge variant="default" className="text-[10px] bg-blue-100 text-blue-800 border-blue-200">
+                  <Badge variant="outline" className="text-xs bg-primary/10 text-primary border-primary/20">
                     {embeddingData.model.toUpperCase()}
                   </Badge>
                 )}
@@ -220,7 +220,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
                   <TooltipTrigger asChild>
                     <div>
                       <Select value={reductionMethod} onValueChange={handleReductionMethodChange}>
-                        <SelectTrigger className="w-20 h-6 text-xs border-gray-300 hover:border-gray-400 transition-colors">
+                        <SelectTrigger className="w-24 h-8 text-xs">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -239,12 +239,12 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
                   <TooltipTrigger asChild>
                     <Button
                       size="sm"
-                      variant="outline"
+                      variant="secondary"
                       onClick={handleFetchEmbeddings}
                       disabled={isLoading || availableFiles.length === 0}
-                      className="h-6 w-6 p-0 border-gray-300 hover:border-blue-400 hover:bg-blue-50 transition-all duration-200"
+                      className="h-8 w-8 p-0"
                     >
-                      <RefreshCw className={`h-3 w-3 ${isLoading ? 'animate-spin text-blue-600' : 'text-gray-600'}`} />
+                      <RefreshCw className={`h-3.5 w-3.5 ${isLoading ? 'animate-spin text-primary' : ''}`} />
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -255,7 +255,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
             </div>
             
             {/* 3D Toggle */}
-            <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex items-center justify-between p-3 bg-muted rounded-sm border border-border">
               <div className="flex items-center space-x-2">
                 <Switch
                   id="3d-mode"
@@ -263,9 +263,9 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
                   onCheckedChange={handle3DToggle}
                   disabled={isLoading}
                 />
-                <Label htmlFor="3d-mode" className="text-xs flex items-center gap-1 font-medium text-gray-700">
-                  {is3D ? <Box className="h-3 w-3 text-blue-600" /> : <Square className="h-3 w-3 text-gray-500" />}
-                  <span className={is3D ? "text-blue-600" : "text-gray-500"}>
+                <Label htmlFor="3d-mode" className="text-xs flex items-center gap-1 font-medium">
+                  {is3D ? <Box className="h-3.5 w-3.5 text-primary" /> : <Square className="h-3.5 w-3.5 text-muted-foreground" />}
+                  <span className={is3D ? "text-primary" : "text-muted-foreground"}>
                     {is3D ? '3D View' : '2D View'}
                   </span>
                 </Label>
@@ -274,33 +274,33 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
 
             {/* Status Messages */}
             {availableFiles.length === 0 && (
-              <div className="text-xs text-gray-500 flex items-center gap-2 p-2 bg-yellow-50 rounded border border-yellow-200">
-                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+              <div className="text-xs text-muted-foreground flex items-center gap-2 p-3 bg-muted/50 rounded-sm border border-border">
+                <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
                 No files available for embedding extraction
               </div>
             )}
             {availableFiles.length > 0 && !embeddingData && !isLoading && (
-              <div className="text-xs text-gray-600 flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+              <div className="text-xs flex items-center gap-2 p-3 bg-primary/5 rounded-sm border border-primary/20">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                 Click <RefreshCw className="inline h-3 w-3 mx-1" /> to extract embeddings from all {availableFiles.length} files
               </div>
             )}
             {isLoading && (
-              <div className="text-xs text-blue-600 flex items-center gap-2 p-2 bg-blue-50 rounded border border-blue-200">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
+              <div className="text-xs text-primary flex items-center gap-2 p-3 bg-primary/5 rounded-sm border border-primary/20">
+                <div className="w-2 h-2 bg-primary rounded-full animate-ping"></div>
                 Processing {availableFiles.length} files... This may take a few moments.
               </div>
             )}
             {error && (
-              <div className="text-xs text-red-600 flex items-center gap-2 p-2 bg-red-50 rounded border border-red-200">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+              <div className="text-xs text-destructive flex items-center gap-2 p-3 bg-destructive/5 rounded-sm border border-destructive/20">
+                <div className="w-2 h-2 bg-destructive rounded-full"></div>
                 {error}
               </div>
             )}
           </div>
 
           {/* Embedding Plot */}
-          <div className="h-[500px] border border-gray-200 rounded-lg bg-white p-2 overflow-hidden">
+          <div className="h-[500px] border border-border rounded-sm bg-card shadow-aws-sm p-2 overflow-hidden">
             <EmbeddingPlot 
               selectedMethod={reductionMethod} 
               is3D={is3D}

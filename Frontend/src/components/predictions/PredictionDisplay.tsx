@@ -59,26 +59,26 @@ export const PredictionDisplay = ({
 }: PredictionDisplayProps) => {
   if (!selectedFile && !selectedEmbeddingFile) {
     return (
-      <Card className="border-gray-200 bg-white">
-        <CardContent className="p-4 text-center text-gray-500">
-          <div className="text-sm-tight">No file selected</div>
+      <Card className="shadow-aws-sm">
+        <CardContent className="p-4 text-center text-muted-foreground">
+          <div className="text-sm">No file selected</div>
         </CardContent>
       </Card>
     );
   }
 
   return (
-    <Card className="border-gray-200 bg-white">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-info">
+    <Card className="shadow-aws-sm">
+      <CardHeader className="bg-panel-header">
+        <CardTitle className="text-sm">
           {model === "wav2vec2" ? "Classification Results" : model?.includes("whisper") ? "Transcription Results" : "Prediction Results"}
           {model === "wav2vec2" && (
-            <Badge variant="secondary" className="ml-2 text-xs-tight">
+            <Badge variant="outline" className="ml-2 text-xs bg-primary/10 text-primary border-primary/20">
               Wav2Vec2 Emotion
             </Badge>
           )}
           {model?.includes("whisper") && (
-            <Badge variant="secondary" className="ml-2 text-xs-tight">
+            <Badge variant="outline" className="ml-2 text-xs bg-primary/10 text-primary border-primary/20">
               {model.includes("large") ? "Whisper Large" : "Whisper Base"}
             </Badge>
           )}
@@ -86,14 +86,14 @@ export const PredictionDisplay = ({
       </CardHeader>
       <CardContent className="space-y-2">
         {isLoading && (
-          <div className="text-xs-tight text-gray-500 flex items-center gap-2">
-            <div className="w-3 h-3 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="text-xs text-muted-foreground flex items-center gap-2">
+            <div className="w-3 h-3 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
             Loading prediction...
           </div>
         )}
-        
+
         {error && (
-          <div className="text-xs-tight text-red-500 p-2 bg-red-50 rounded border">
+          <div className="text-xs text-destructive p-2 bg-destructive/5 rounded-sm border border-destructive/20">
             Error: {error}
           </div>
         )}
