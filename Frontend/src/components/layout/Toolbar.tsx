@@ -121,7 +121,7 @@ const onModelChange = (value: string) => {
 
   return (
     <TooltipProvider>
-      <div className="h-12 bg-white border-b border-border shadow-aws-sm px-5 flex items-center justify-between">
+      <div className="h-12 bg-white border-b border-border px-5 flex items-center justify-between">
         {/* Left side: Model and Dataset selectors */}
         <div className="flex items-center gap-5">
           <div className="flex items-center gap-2.5">

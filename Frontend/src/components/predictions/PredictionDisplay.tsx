@@ -59,7 +59,7 @@ export const PredictionDisplay = ({
 }: PredictionDisplayProps) => {
   if (!selectedFile && !selectedEmbeddingFile) {
     return (
-      <Card className="shadow-aws-sm">
+      <Card>
         <CardContent className="p-3 text-center text-muted-foreground">
           <div className="text-xs">No file selected</div>
         </CardContent>
@@ -68,7 +68,7 @@ export const PredictionDisplay = ({
   }
 
   return (
-    <Card className="shadow-aws-sm">
+    <Card>
       <CardHeader className="bg-panel-header">
         <CardTitle className="text-xs">
           {model === "wav2vec2" ? "Classification Results" : model?.includes("whisper") ? "Transcription Results" : "Prediction Results"}

@@ -207,7 +207,7 @@ export const DatapointEditorPanel = ({
 
       <div className="flex-1 p-3 overflow-auto space-y-3">
         {/* Sample Info - Top */}
-        <Card className="shadow-aws-sm">
+        <Card>
           <CardHeader className="bg-panel-header">
             <div className="flex items-center justify-between">
               <CardTitle className="text-xs flex items-center gap-1.5">
@@ -222,7 +222,7 @@ export const DatapointEditorPanel = ({
                 </Tooltip>
               </CardTitle>
               {perturbationResult?.success && (
-                <div className="flex items-center gap-0.5 p-0.5 bg-muted border border-border rounded-sm">
+                <div className="flex items-center gap-0.5 p-0.5 bg-muted border border-border rounded-md">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
@@ -339,7 +339,7 @@ export const DatapointEditorPanel = ({
         />
 
         {/* Audio Player & Waveform - Bottom */}
-        <Card className="shadow-aws-sm">
+        <Card>
           <CardHeader className="bg-panel-header">
             <CardTitle className="text-xs flex items-center gap-1.5">
               Audio Playback

@@ -601,16 +601,16 @@ export const AudioDatasetPanel = ({
         </div>
         
         {/* Search bar */}
-        <div className="px-3 pt-2.5 pb-1.5">
-          <div className="relative">
-            <Search className="absolute left-2.5 top-1/2 transform -translate-y-1/2 h-3 w-3 text-muted-foreground" />
+        <div className="px-3 pt-2.5 pb-1">
+          <div className="relative border border-gray-200 rounded-lg px-2 py-1">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-3 w-3 text-muted-foreground" />
             <Tooltip>
               <TooltipTrigger asChild>
                 <Input
                   placeholder="Search audio files..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-8 h-8 text-xs"
+                  className="pl-9 h-6 text-xs bg-transparent border-0 focus:ring-0 rounded-md"
                 />
               </TooltipTrigger>
               <TooltipContent>
@@ -622,7 +622,7 @@ export const AudioDatasetPanel = ({
       </div>
       
       <div className="flex-1 overflow-hidden px-3 pb-3">
-        <Card className="h-full rounded-sm shadow-aws-sm">
+        <Card className="h-full rounded-lg">
           <CardContent className="p-0 h-full">
             <AudioDataTable 
               selectedRow={selectedRow}

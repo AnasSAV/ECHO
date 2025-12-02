@@ -190,16 +190,16 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
     <TooltipProvider>
       <div className="h-full bg-white border-r border-gray-200 flex flex-col">
         <div className="panel-header p-3 border-b border-gray-200">
-          <h3 className="font-medium text-xs text-gray-800 flex items-center gap-1.5">
-            Audio Embeddings
-            <Tooltip>
-              <TooltipTrigger>
-                <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
-              </TooltipTrigger>
-              <TooltipContent>
-                Visualize high-dimensional audio features in 2D/3D space
-              </TooltipContent>
-            </Tooltip>
+          <h3 className="font-bold text-sm text-gray-800 flex items-center gap-1.5">
+        Audio Embeddings
+        <Tooltip>
+          <TooltipTrigger>
+            <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
+          </TooltipTrigger>
+          <TooltipContent>
+            Visualize high-dimensional audio features in 2D/3D space
+          </TooltipContent>
+        </Tooltip>
           </h3>
         </div>
       
@@ -255,7 +255,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
             </div>
             
             {/* 3D Toggle */}
-            <div className="flex items-center justify-between p-2.5 bg-muted rounded-sm border border-border">
+            <div className="flex items-center justify-between p-2.5 bg-muted rounded-md border border-border">
               <div className="flex items-center space-x-1.5">
                 <Switch
                   id="3d-mode"
@@ -274,7 +274,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
 
             {/* Status Messages */}
             {availableFiles.length === 0 && (
-              <div className="text-xs text-muted-foreground flex items-center gap-2 p-3 bg-muted/50 rounded-sm border border-border">
+              <div className="text-xs text-muted-foreground flex items-center gap-2 p-3 bg-muted/50 rounded-md border border-border">
                 <div className="w-2 h-2 bg-muted-foreground rounded-full"></div>
                 No files available for embedding extraction
               </div>
@@ -300,7 +300,7 @@ export const EmbeddingPanel = ({ model = "whisper-base", dataset = "common-voice
           </div>
 
           {/* Embedding Plot */}
-          <div className="h-[450px] border border-border rounded-sm bg-card shadow-aws-sm p-1.5 overflow-hidden">
+          <div className="h-[450px] border border-border rounded-lg bg-card p-1.5 overflow-hidden">
             <EmbeddingPlot 
               selectedMethod={reductionMethod} 
               is3D={is3D}
