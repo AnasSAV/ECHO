@@ -190,55 +190,55 @@ export const DatapointEditorPanel = ({
   
   return (
     <TooltipProvider>
-      <div className="h-full bg-white border-l border-gray-200 flex flex-col">
-        <div className="panel-header p-3 border-b border-gray-200">
-          <h3 className="font-medium text-sm text-gray-800 flex items-center gap-2">
+      <div className="h-full bg-panel-background border-l border-border flex flex-col">
+        <div className="bg-panel-header p-3 border-b border-border">
+          <h3 className="font-semibold text-sm text-foreground flex items-center gap-1.5">
             Datapoint Editor
             <Tooltip>
               <TooltipTrigger>
-                <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
               </TooltipTrigger>
-              <TooltipContent className="font-normal">
+              <TooltipContent>
                 Edit and analyze individual audio samples with predictions and perturbations
               </TooltipContent>
             </Tooltip>
           </h3>
         </div>
-      
-      <div className="flex-1 p-3 overflow-auto space-y-4">
+
+      <div className="flex-1 p-3 overflow-auto space-y-3">
         {/* Sample Info - Top */}
-        <Card className="border-gray-200 bg-white">
-          <CardHeader className="panel-header pb-2">
+        <Card>
+          <CardHeader className="bg-panel-header">
             <div className="flex items-center justify-between">
-              <CardTitle className="text-sm text-gray-800 flex items-center gap-2">
+              <CardTitle className="text-xs flex items-center gap-1.5">
                 Sample Info
                 <Tooltip>
                   <TooltipTrigger>
-                    <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                    <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                   </TooltipTrigger>
-                  <TooltipContent className="font-normal">
+                  <TooltipContent>
                     Detailed information about the selected audio sample
                   </TooltipContent>
                 </Tooltip>
               </CardTitle>
               {perturbationResult?.success && (
-                <div className="flex items-center gap-1 p-1 bg-white border border-gray-200 rounded-lg">
+                <div className="flex items-center gap-0.5 p-0.5 bg-muted border border-border rounded-md">
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Button
                         variant={!showPerturbed ? "default" : "ghost"}
                         size="sm"
                         onClick={() => setShowPerturbed(false)}
-                        className={`text-xs h-7 px-3 transition-all duration-200 ${
-                          !showPerturbed 
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm border-0 scale-[1.02]' 
-                            : 'text-gray-600 hover:bg-blue-50 hover:text-gray-800'
+                        className={`text-[10px] h-6 px-2.5 transition-all ${
+                          !showPerturbed
+                            ? 'bg-primary hover:bg-primary-hover text-primary-foreground shadow-aws-sm'
+                            : 'text-muted-foreground hover:bg-background'
                         }`}
                       >
                         Original
                       </Button>
                     </TooltipTrigger>
-                    <TooltipContent className="font-normal">
+                    <TooltipContent>
                       View the original unmodified audio file
                     </TooltipContent>
                   </Tooltip>
@@ -248,10 +248,10 @@ export const DatapointEditorPanel = ({
                         variant={showPerturbed ? "default" : "ghost"}
                         size="sm"
                         onClick={() => setShowPerturbed(true)}
-                        className={`text-xs h-7 px-3 transition-all duration-200 ${
-                          showPerturbed 
-                            ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-sm border-0 scale-[1.02]' 
-                            : 'text-gray-600 hover:bg-blue-50 hover:text-gray-800'
+                        className={`text-[10px] h-6 px-2.5 transition-all ${
+                          showPerturbed
+                            ? 'bg-primary hover:bg-primary-hover text-primary-foreground shadow-aws-sm'
+                            : 'text-muted-foreground hover:bg-background'
                         }`}
                       >
                         Perturbed
@@ -265,7 +265,7 @@ export const DatapointEditorPanel = ({
               )}
             </div>
           </CardHeader>
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-1.5">
             <div className="text-xs-tight">
               <span className="text-gray-500">File:</span>
               <span className="ml-2 font-mono text-gray-700">{currentFileInfo?.filename || "No file selected"}</span>
@@ -339,21 +339,21 @@ export const DatapointEditorPanel = ({
         />
 
         {/* Audio Player & Waveform - Bottom */}
-        <Card className="border-gray-200 bg-white">
-          <CardHeader className="panel-header pb-2">
-            <CardTitle className="text-sm text-gray-800 flex items-center gap-2">
+        <Card>
+          <CardHeader className="bg-panel-header">
+            <CardTitle className="text-xs flex items-center gap-1.5">
               Audio Playback
               <Tooltip>
                 <TooltipTrigger>
-                  <HelpCircle className="h-4 w-4 text-muted-foreground" />
+                  <HelpCircle className="h-3 w-3 text-muted-foreground hover:text-primary cursor-help transition-colors" />
                 </TooltipTrigger>
-                <TooltipContent className="font-normal">
+                <TooltipContent>
                   Interactive audio player with waveform visualization
                 </TooltipContent>
               </Tooltip>
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3">
+          <CardContent className="space-y-2.5">
             <WaveformViewer 
               audioUrl={audioUrl}
               isPlaying={isPlaying}

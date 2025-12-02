@@ -251,7 +251,7 @@ export const CustomDatasetManager: React.FC<CustomDatasetManagerProps> = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm" className="h-8">
+        <Button variant="outline" size="sm" className="h-7 text-xs">
           <Database className="h-4 w-4 mr-2" />
           Manage Datasets
         </Button>

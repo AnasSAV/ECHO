@@ -12,9 +12,9 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '1.75rem',
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1260px'
 			}
 		},
 		extend: {
@@ -22,16 +22,23 @@ export default {
 				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
+			boxShadow: {
+				'aws-sm': '0 1px 1px 0 rgba(0, 28, 36, 0.3), 1px 1px 1px 0 rgba(0, 28, 36, 0.15), -1px 1px 1px 0 rgba(0, 28, 36, 0.15)',
+				'aws': '0 4px 4px 0 rgba(0, 28, 36, 0.5)',
+				'aws-md': '0 4px 20px 1px rgba(0, 28, 36, 0.1), 0 1px 4px 0 rgba(0, 28, 36, 0.16)',
+				'aws-lg': '0 12px 24px 0 rgba(0, 28, 36, 0.12)',
+				'aws-xl': '0 16px 64px 0 rgba(0, 28, 36, 0.24)',
+			},
 			fontSize: {
-				'xs': ['0.75rem', { lineHeight: '1.5' }],
-				'sm': ['0.875rem', { lineHeight: '1.5' }],
-				'base': ['1rem', { lineHeight: '1.6' }],
-				'lg': ['1.125rem', { lineHeight: '1.6' }],
-				'xl': ['1.25rem', { lineHeight: '1.6' }],
-				'2xl': ['1.5rem', { lineHeight: '1.5' }],
-				'3xl': ['1.875rem', { lineHeight: '1.4' }],
-				'4xl': ['2.25rem', { lineHeight: '1.3' }],
-				'5xl': ['3rem', { lineHeight: '1.2' }],
+				'xs': ['0.6875rem', { lineHeight: '1.45' }],
+				'sm': ['0.8125rem', { lineHeight: '1.45' }],
+				'base': ['0.875rem', { lineHeight: '1.5' }],
+				'lg': ['1rem', { lineHeight: '1.5' }],
+				'xl': ['1.125rem', { lineHeight: '1.5' }],
+				'2xl': ['1.35rem', { lineHeight: '1.45' }],
+				'3xl': ['1.6875rem', { lineHeight: '1.35' }],
+				'4xl': ['2rem', { lineHeight: '1.25' }],
+				'5xl': ['2.7rem', { lineHeight: '1.15' }],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

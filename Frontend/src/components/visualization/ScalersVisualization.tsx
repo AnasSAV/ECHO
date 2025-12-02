@@ -370,36 +370,37 @@ export const ScalersVisualization = ({ model, dataset }: ScalersVisualizationPro
       <div className="flex flex-wrap gap-2 items-center text-xs">
         
         <Select value={selectionMode} onValueChange={(value: "box" | "lasso") => setSelectionMode(value)}>
-          <SelectTrigger className="w-20 h-7">
-            <SelectValue />
+          <SelectTrigger className="w-24 h-7 text-[11px] rounded-md border border-gray-200">
+        <SelectValue />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="box">Box</SelectItem>
-            <SelectItem value="lasso">Lasso</SelectItem>
+          <SelectContent className="text-[11px]">
+        <SelectItem value="box" className="text-[11px]">Box</SelectItem>
+        <SelectItem value="lasso" className="text-[11px]">Lasso</SelectItem>
           </SelectContent>
         </Select>
 
         <Select value={analysisType} onValueChange={(value: "default" | "frequency") => setAnalysisType(value)}>
-          <SelectTrigger className="w-28 h-7">
-            <SelectValue />
+          <SelectTrigger className="w-36 h-7 text-[11px] rounded-md border border-gray-200">
+        <SelectValue />
           </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="default">
-              {model === 'wav2vec2' ? 'Predictions' : 'Common Terms'}
-            </SelectItem>
-            <SelectItem value="frequency">Audio Features</SelectItem>
+          <SelectContent className="text-[11px]">
+        <SelectItem value="default" className="text-[11px]">
+          {model === 'wav2vec2' ? 'Predictions' : 'Common Terms'}
+        </SelectItem>
+        <SelectItem value="frequency" className="text-[11px]">Audio Features</SelectItem>
           </SelectContent>
         </Select>
-
-        <Button 
-          variant="outline" 
-          size="sm" 
-          onClick={clearSelection}
-          disabled={selectedPoints.length === 0}
-          className="h-7 text-xs"
-        >
-          Clear ({selectedPoints.length})
-        </Button>
+        <div className="ml-auto">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={clearSelection}
+            disabled={selectedPoints.length === 0}
+            className="h-6 text-[10px] shadow-none border border-gray-200"
+          >
+            Clear ({selectedPoints.length})
+          </Button>
+        </div>
       </div>
 
       <div className="flex-1 flex gap-3">

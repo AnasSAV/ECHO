@@ -13,6 +13,8 @@ interface EmbeddingPlotProps {
   onPointSelect?: (filename: string, coordinates: number[]) => void;
   onAngleRangeSelect?: (selectedFiles: string[]) => void;
   selectedFile?: string | null;
+  selectionMode?: 'box' | 'lasso';
+  onSelectionChange?: (selectedFiles: string[]) => void;
 }
 
 type PlaneType = 'none' | 'xy' | 'xz' | 'yz';
@@ -24,9 +26,11 @@ interface EmbeddingPlotContentProps {
   onPointSelect?: (filename: string, coordinates: number[]) => void;
   onAngleRangeSelect?: (selectedFiles: string[]) => void;
   selectedFile?: string | null;
+  selectionMode?: 'box' | 'lasso';
+  onSelectionChange?: (selectedFiles: string[]) => void;
 }
 
-const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRangeSelect, selectedFile }: EmbeddingPlotContentProps) => {
+const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRangeSelect, selectedFile, selectionMode = 'box', onSelectionChange }: EmbeddingPlotContentProps) => {
   const { embeddingData, isLoading, error } = useEmbedding();
   const plotRef = useRef<any>(null);
   const [selectedPlane, setSelectedPlane] = useState<PlaneType>('none');
@@ -64,7 +68,8 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
   const handlePointClick = useCallback((event: any) => {
     if (event.points && event.points.length > 0) {
       const point = event.points[0];
-      const filename = point.text;
+      // Use customdata[0] which contains the raw filename (not the HTML-formatted text)
+      const filename = point.customdata[0];
       const coordinates = is3D ? [point.x, point.y, point.z] : [point.x, point.y];
       
       if (onPointSelect) {
@@ -72,6 +77,22 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
       }
     }
   }, [onPointSelect, is3D]);
+
+  // Handle 2D box/lasso selection
+  const handleSelection = useCallback((event: any) => {
+    if (!is3D && onSelectionChange && event?.points) {
+      // Use customdata[0] which contains the raw filename (not the HTML-formatted text)
+      const selected = event.points.map((p: any) => p.customdata[0]);
+      onSelectionChange(selected);
+    }
+  }, [is3D, onSelectionChange]);
+
+  // Handle deselection
+  const handleDeselect = useCallback(() => {
+    if (!is3D && onSelectionChange) {
+      onSelectionChange([]);
+    }
+  }, [is3D, onSelectionChange]);
 
   // Use real embedding data if available, otherwise fall back to mock data
   const getPlotData = () => {
@@ -340,7 +361,7 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
       opacity: markerOpacities // Use dynamic opacity array
     },
     text: hoverText,
-    customdata: colors,
+    customdata: text.map((filename, index) => [filename, colors[index]]), // Store [filename, color] for each point
   };
 
   // Add Z coordinate for 3D plots
@@ -400,7 +421,7 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
       size: 11,
       color: '#374151'
     },
-    dragmode: is3D ? 'orbit' : 'zoom',
+    dragmode: is3D ? 'orbit' : (selectionMode === 'box' ? 'select' : 'lasso'),
     hovermode: 'closest',
     uirevision: true // Maintains UI state on data updates
   };
@@ -569,6 +590,8 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
         data={traces}
         layout={layout}
         onClick={handlePointClick}
+        onSelected={handleSelection}
+        onDeselect={handleDeselect}
         config={{
           displayModeBar: false, // Hide the mode bar completely
           displaylogo: false,
@@ -592,7 +615,7 @@ const EmbeddingPlotContent = ({ selectedMethod, is3D, onPointSelect, onAngleRang
   );
 };
 
-export const EmbeddingPlot = ({ selectedMethod = "pca", is3D = false, onPointSelect, onAngleRangeSelect, selectedFile }: EmbeddingPlotProps) => {
+export const EmbeddingPlot = ({ selectedMethod = "pca", is3D = false, onPointSelect, onAngleRangeSelect, selectedFile, selectionMode = 'box', onSelectionChange }: EmbeddingPlotProps) => {
   return (
     <div className="w-full h-full min-h-0 relative">
       <EmbeddingPlotContent
@@ -601,6 +624,8 @@ export const EmbeddingPlot = ({ selectedMethod = "pca", is3D = false, onPointSel
         onPointSelect={onPointSelect}
         onAngleRangeSelect={onAngleRangeSelect}
         selectedFile={selectedFile}
+        selectionMode={selectionMode}
+        onSelectionChange={onSelectionChange}
       />
     </div>
   );

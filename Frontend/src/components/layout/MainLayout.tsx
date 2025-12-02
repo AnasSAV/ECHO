@@ -523,13 +523,13 @@ export const MainLayout = () => {
           setDataset={setDataset}
           onBatchInference={handleBatchInference}
         />
-        
+
         {/* Main Content Area */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-hidden bg-background">
           <PanelGroup direction="horizontal" className="h-full">
             {/* Left Panel: Embeddings & Scalar Plots */}
             <Panel defaultSize={25} minSize={20}>
-              <EmbeddingPanel 
+              <EmbeddingPanel
                 model={model}
                 dataset={dataset}
                 availableFiles={availableFiles}
@@ -537,8 +537,8 @@ export const MainLayout = () => {
                 onFileSelect={handleEmbeddingSelection}
               />
             </Panel>
-            
-            <PanelResizeHandle className="w-1 bg-border hover:bg-border/80 transition-colors" />
+
+            <PanelResizeHandle className="w-1 bg-border hover:bg-primary/20 transition-colors" />
             
             {/* Center Panel: Predictions */}
             <Panel defaultSize={50} minSize={30}>
@@ -556,8 +556,8 @@ export const MainLayout = () => {
                   />
                 </Panel>
                 
-                <PanelResizeHandle className="h-1 bg-border hover:bg-border/80 transition-colors" />
-                
+                <PanelResizeHandle className="h-1 bg-border hover:bg-primary/20 transition-colors" />
+
                 {/* Bottom Panel: Audio Dataset Table */}
                 <Panel defaultSize={30} minSize={20}>
                   <AudioDatasetPanel
@@ -579,8 +579,8 @@ export const MainLayout = () => {
                 </Panel>
               </PanelGroup>
             </Panel>
-            
-            <PanelResizeHandle className="w-1 bg-border hover:bg-border/80 transition-colors" />
+
+            <PanelResizeHandle className="w-1 bg-border hover:bg-primary/20 transition-colors" />
             
             {/* Right Panel: Audio Player & Label Editor */}
             <Panel defaultSize={25} minSize={20}>
